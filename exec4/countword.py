@@ -6,6 +6,7 @@ import os
 def countWord(fileName=None):
     words =  0
     list1 = []
+    dict1 = {}
     try:
         if fileName==None:
             raise("error open file")
