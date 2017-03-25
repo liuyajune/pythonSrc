@@ -13,4 +13,4 @@ def genCodeList(length=5 ,number =200):
         print(i , genCode(length), end="\n")
 
 
-print(genCodeList(5,200))
+#print(genCodeList(5,200))
