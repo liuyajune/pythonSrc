@@ -1,15 +1,20 @@
-from PIL import Image,ImageFont,ImageDraw
+'''
+第 0001 题：做为 Apple Store App 独立开发者，你要搞限时促销，为你的应用生成激活码（或者优惠券），
+使用 Python 如何生成 200 个激活码（或者优惠券）？
+'''
+#!/usr/bin/env  python
+#-*-  coding:utf-8 -*-
 import random
+def genCode(len=4):
+    activeCode = []
+    for i in range(len):
+        activeCode += chr(random.randint(ord('a'),ord('z')))
+    activeCode = "".join(activeCode)
+    return activeCode
 
-msgNum = str(int(random.randint(1,99)))
-print(msgNum)
+def genCodeList(length=5 ,number =200):
+    for i in range(number):
+        print(i , genCode(length), end="\n")
 
-img1 = Image.open('img1.jpg')
-w,h = img1.size
-wdraw = w * 0.8
-hdraw = h * 0.5
-draw = ImageDraw.Draw(img1)  #创建图像
-font = ImageFont.truetype('tahoma.ttf', 20) #载入数值的字体及大小
-draw.text((wdraw, hdraw), msgNum,font= font, fill=(255, 33, 33))
-img1.save('img2.png','png')
-img1.show()
+
+print(genCodeList(5,200))
